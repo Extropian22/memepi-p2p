@@ -1,31 +1,3 @@
-Okay, adding `million.js` is a great idea for optimizing your MemePi P2P Chat application, especially with features like a chatroom and a real-time dashboard, where DOM updates can be frequent. Million.js aims to make these updates incredibly fast.
-
-However, it's important to understand that simply adding the script tag won't automatically make your app faster. **To truly leverage `million.js`, you'll need to refactor how your application renders and updates the DOM.**
-
-Currently, your code directly manipulates the DOM using methods like `appendChild`, `innerHTML = ''`, etc. To benefit from `million.js`, you would typically:
-
-1.  **Describe your UI as "Virtual Nodes" (VNodes):** Instead of creating `div` elements directly, you'd use `million.js`'s `h` (hyperscript) function to describe what the DOM *should* look like.
-2.  **Use `block` or `render`:** You'd then use `million.js`'s `block` (for components that update frequently) or `render` (for initial full renders) functions to efficiently update the actual DOM based on your VNodes.
-
-This is a significant architectural change for a project that already has direct DOM manipulation. It's not a simple copy-paste fix for all rendering.
-
-**What I will do in this update:**
-
-1.  **Include the `million.js` CDN script tag** in your `index.html`.
-2.  **Add comments** in the JavaScript to explain *how* you would start integrating `million.js` for performance gains, particularly for your message rendering.
-
----
-
-### **Complete `index.html` File (with Million.js Script Tag and Guidance)**
-
-Please **replace your entire `chat/index.html` file** with the content below.
-
-**Remember these crucial steps after replacing the file:**
-
-*   **Replace `YOUR_ACTUAL_GUN_JS_PUBLIC_KEY_HERE`** with your actual Gun.js public key. (To get it: Log in to your app as `Xtropian_Janus`, open browser console (`F12`), type `gun.user().is.pub` and copy the output.)
-*   Ensure your `images/memepi-logo.png`, `images/memepi-logo-192.png`, and `images/memepi-logo-512.png` files are in your `chat/images/` directory.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
